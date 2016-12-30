@@ -200,7 +200,7 @@ namespace OpenHttp
                             foreach (var value in data.Value)
                             {
                                 postBytes.Add(boundarybytes);
-                                postBytes.Add(Encoding.UTF8.GetBytes($"Content-Disposition: form-data; name=\"{data.Key}\"\r\nContent-Type: text/plain\r\n\r\n{head.Data[value]}"));
+                                postBytes.Add(Encoding.UTF8.GetBytes($"Content-Disposition: form-data; name=\"{data.Key}\"\r\nContent-Type: text/plain\r\n\r\n{value}"));
                             }
                         }
 
