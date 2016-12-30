@@ -165,11 +165,7 @@ namespace OpenHttp
                 switch (head.ContentType)
                 {
                     case ContentType.Default:
-                        var keyValueList = from key in head.Data.AllKeys
-                                           let keyValues = head.Data.GetValues(key)
-                                           where keyValues != null
-                                           from value in keyValues
-                                           select $"{key}={value}";
+                        var keyValueList = head.Data.AllKeys.Select(c => new {key = c, keyValues = head.Data.GetValues(c)}).Where(c => c.keyValues != null).SelectMany(c => c.keyValues, (c, value) => $"{c.key}={value}");
 
                         var defaultData = string.Join("&", keyValueList);
                         var defaultBytes = Encoding.UTF8.GetBytes(defaultData);
@@ -177,13 +173,13 @@ namespace OpenHttp
                         postBytes.Add(defaultBytes);
                         break; ;
                     case ContentType.Json:
-                        var jsonData = head.Data.AllKeys.ToDictionary(c => c, c => head.Data.GetValues(c)).ToJson();
+                        var jsonData = head.Data.AllKeys.ToDictionary(c => c, c => head.Data.GetValues(c)?.Length == 1 ? (object)head.Data.Get(c) : head.Data.GetValues(c)).ToJson();
                         var jsonBytes = Encoding.UTF8.GetBytes(jsonData);
 
                         postBytes.Add(jsonBytes);
                         break; ;
                     case ContentType.Xml:
-                        var xmlData = head.Data.AllKeys.ToDictionary(c => c, c => head.Data.GetValues(c)).ToXml();
+                        var xmlData = head.Data.AllKeys.ToDictionary(c => c, c => head.Data.GetValues(c)?.Length == 1 ? (object)head.Data.Get(c) : head.Data.GetValues(c)).ToXml();
                         var xmlBytes = Encoding.UTF8.GetBytes(xmlData);
 
                         postBytes.Add(xmlBytes);
