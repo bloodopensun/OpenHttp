@@ -47,7 +47,7 @@ namespace OpenHttp
         /// <summary>
         /// 请求的参数集合
         /// </summary>
-        public Object Data { get; set; } = new NameValueCollection();
+        public Object Data { get; private set; } = new NameValueCollection();
 
         /// <summary>
         /// 上传的文件
@@ -343,6 +343,9 @@ namespace OpenHttp
             return this;
         }
 
+        /// <summary>
+        /// 普通get与post参数界定
+        /// </summary>
         public class DefaultData
         {
             private readonly HttpHead _httpHead;
@@ -353,12 +356,22 @@ namespace OpenHttp
                 _httpHead = httpHead;
             }
 
+            /// <summary>
+            /// 增加请求参数
+            /// </summary>
+            /// <param name="key">键</param>
+            /// <param name="value">值</param>
+            /// <returns></returns>
             public DefaultData AddData(string key, string value)
             {
                 _data.Add(key, value);
                 return this;
             }
 
+            /// <summary>
+            /// 结束参数增加
+            /// </summary>
+            /// <returns></returns>
             public HttpHead End()
             {
                 _httpHead.Data = _data;
@@ -366,6 +379,9 @@ namespace OpenHttp
             }
         }
 
+        /// <summary>
+        /// 流方式post参数界定
+        /// </summary>
         public class StreamData
         {
             private readonly HttpHead _httpHead;
@@ -377,18 +393,37 @@ namespace OpenHttp
                 _httpHead = httpHead;
             }
 
+            /// <summary>
+            /// 增加请求参数
+            /// </summary>
+            /// <param name="key">键</param>
+            /// <param name="value">值</param>
+            /// <returns></returns>
             public StreamData AddData(string key, string value)
             {
                 _data.Add(key, value);
                 return this;
             }
 
+            /// <summary>
+            /// 增加上传文件,默认key为filename
+            /// </summary>
+            /// <param name="fileName"></param>
+            /// <param name="file"></param>
+            /// <returns></returns>
             public StreamData AddFile(string fileName, byte[] file)
             {
                 _files.Add(Tuple.Create("filename", fileName, file));
                 return this;
             }
 
+            /// <summary>
+            /// 增加上传文件
+            /// </summary>
+            /// <param name="key"></param>
+            /// <param name="fileName"></param>
+            /// <param name="file"></param>
+            /// <returns></returns>
             public StreamData AddFile(string key, string fileName, byte[] file)
             {
                 _files.Add(Tuple.Create(key, fileName, file));
