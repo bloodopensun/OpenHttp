@@ -45,18 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enum\ContentType.cs" />
-    <Compile Include="Enum\Method.cs" />
-    <Compile Include="Enum\XRequestedWith.cs" />
-    <Compile Include="Expand\ByteExpand.cs" />
-    <Compile Include="Expand\CookieContainerExpand.cs" />
-    <Compile Include="Expand\EnumExpand.cs" />
-    <Compile Include="Expand\HttpHeadExpand.cs" />
-    <Compile Include="Expand\ImageExpand.cs" />
-    <Compile Include="Expand\JsonExpand.cs" />
-    <Compile Include="Expand\XmlExpand.cs" />
-    <Compile Include="HttpClient.cs" />
-    <Compile Include="HttpHead.cs" />
+    <Compile Include="OpenHttp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
