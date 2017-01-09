@@ -618,7 +618,7 @@ namespace OpenHttp
         {
             var keyValueList = data.AllKeys.Select(key => new { key, keyValues = data.GetValues(key) })
                     .Where(t => t.keyValues != null)
-                    .SelectMany(t => t.keyValues, (t, value) => $"{@t.key}={value}");
+                    .SelectMany(t => t.keyValues, (t, value) => $"{t.key}={value}");
 
             return string.Join("&", keyValueList);
         }
