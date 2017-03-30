@@ -1,125 +1,125 @@
 # OpenHttp
-ÓÉÓÚ¹¤×÷Ô­ÒòÒÔ¼°¸öÈË°®ºÃ,¾­³£ĞèÒª×¥È¡Ò»Ğ©ÍøÂç×ÊÔ´ºÍµ÷ÓÃÒ»Ğ©·Ç¹«¿ª½Ó¿Ú,Ê¹ÓÃÁËºÜ¶à.Net×ÔÉí×é¼ş,µ«²¢²»Ì«ºÃÓÃ
+ç”±äºå·¥ä½œåŸå› ä»¥åŠä¸ªäººçˆ±å¥½,ç»å¸¸éœ€è¦æŠ“å–ä¸€äº›ç½‘ç»œèµ„æºå’Œè°ƒç”¨ä¸€äº›éå…¬å¼€æ¥å£,ä½¿ç”¨äº†å¾ˆå¤š.Netè‡ªèº«ç»„ä»¶,ä½†å¹¶ä¸å¤ªå¥½ç”¨
 
-²¢ÇÒ±¾ÈË¶Ôsocket¿ª·¢²¢²»ÔõÃ´ÊìÏ¤,¹ÊÖ»ÄÜÔÚHttpWebRequestºÍHttpWebResponse×öÒ»Ğ©·â×°,Ê¹ËûÃÇ¸üºÃÓÃ(¶ÔÎÒÀ´Ëµ)
+å¹¶ä¸”æœ¬äººå¯¹socketå¼€å‘å¹¶ä¸æ€ä¹ˆç†Ÿæ‚‰,æ•…åªèƒ½åœ¨HttpWebRequestå’ŒHttpWebResponseåšä¸€äº›å°è£…,ä½¿ä»–ä»¬æ›´å¥½ç”¨(å¯¹æˆ‘æ¥è¯´)
 
-## ¹¦ÄÜ¸ÅÊö
+## åŠŸèƒ½æ¦‚è¿°
 
-- ÇáÁ¿¼¶(Ò»¸öÎÄ¼ş,ÉÏÇ§ĞĞ´úÂë)
-- ÓÃÓÚ¼òµ¥µÄHttp/HttpsÇëÇó
-- Ê¹ÓÃÁ´Ê½µÄ·½Ê½×é×°ÇëÇóHead
-- ×Ô¶¯Ê¶±ğÑ¹Ëõ·½Ê½,×Ô¶¯½âÑ¹
-- ÔİÊ±Ö»Ö§³ÖGet/PostÇëÇó
+- è½»é‡çº§(ä¸€ä¸ªæ–‡ä»¶,ä¸Šåƒè¡Œä»£ç )
+- ç”¨äºç®€å•çš„Http/Httpsè¯·æ±‚
+- ä½¿ç”¨é“¾å¼çš„æ–¹å¼ç»„è£…è¯·æ±‚Head
+- è‡ªåŠ¨è¯†åˆ«å‹ç¼©æ–¹å¼,è‡ªåŠ¨è§£å‹
+- æš‚æ—¶åªæ”¯æŒGet/Postè¯·æ±‚
 
-## ¿ªÔ´
-ÏÂÔØ
+## å¼€æº
+ä¸‹è½½
 
-GitHub£º https://github.com/bloodopensun/OpenHttp
+GitHubï¼š https://github.com/bloodopensun/OpenHttp
 
-## ´úÂë½éÉÜ
+## ä»£ç ä»‹ç»
 
-### HttpClientÀà
+### HttpClientç±»
 ```C#
 public class HttpClient
 {
-	//Ìá¹©Ò»Ğ©ÓÅ»¯µÄ³õÊ¼»¯ÅäÖÃ
+	//æä¾›ä¸€äº›ä¼˜åŒ–çš„åˆå§‹åŒ–é…ç½®
 	static HttpClient()...
 
-	//ÓÃÀ´¹ÜÀíµ±Ç°ÊµÀıµÄcookieÆ¾Ö¤
+	//ç”¨æ¥ç®¡ç†å½“å‰å®ä¾‹çš„cookieå‡­è¯
 	public CookieContainer Cookie { get; set; } = new CookieContainer();
 
-	//Î¨Ò»Ò»¸ö¶ÔÍâ·½·¨,¼ÓÔØÍøÂç×ÊÔ´
+	//å”¯ä¸€ä¸€ä¸ªå¯¹å¤–æ–¹æ³•,åŠ è½½ç½‘ç»œèµ„æº
 	public byte[] Load(ref HttpHead head)...
 
-	//urlµÄÒ»Ğ©´¦Àí
+	//urlçš„ä¸€äº›å¤„ç†
 	private static string UrlPack(HttpHead head)...
 
-	//¶ÔHttpheadµÄÒ»Ğ©´¦Àí
+	//å¯¹Httpheadçš„ä¸€äº›å¤„ç†
 	private HttpWebRequest GetRequest(HttpHead head)...
 
-	//PostµÄÊ±ºò×öÒ»Ğ©´¦Àí
+	//Postçš„æ—¶å€™åšä¸€äº›å¤„ç†
 	private static HttpWebRequest PostPack(HttpWebRequest myRequest, HttpHead head)...
 
-	//»ñÈ¡ÍøÂç×ÊÔ´
+	//è·å–ç½‘ç»œèµ„æº
 	private HttpWebResponse GetResponse(HttpWebRequest myRequest, ref HttpHead head)
 }
 ```
 
-### HttpHeadÀà
+### HttpHeadç±»
 ```C#
 public class HttpHead
 {
 
-    //Ò»Ğ©headÊôĞÔ
+    //ä¸€äº›headå±æ€§
 	...
 
-    //¿ªÆô×Ô¶¯ÖØ¶¨Ïò,Ä¬ÈÏ¿ªÆô
+    //å¼€å¯è‡ªåŠ¨é‡å®šå‘,é»˜è®¤å¼€å¯
     public HttpHead AllowAutoRedirectEnable()...
 
-    //¹Ø±Õ×Ô¶¯ÖØ¶¨Ïò,Ä¬ÈÏ¿ªÆô
+    //å…³é—­è‡ªåŠ¨é‡å®šå‘,é»˜è®¤å¼€å¯
     public HttpHead AllowAutoRedirectDisable()...
 
-    //µ±Ç°HeadÊ¹ÓÃCookie
+    //å½“å‰Headä½¿ç”¨Cookie
     public HttpHead CookieStateEnable()...
 
-    //µ±Ç°Head½ûÓÃCookie
+    //å½“å‰Headç¦ç”¨Cookie
     public HttpHead CookieStateDisable()...
 
-    //Ìí¼ÓÇëÇóÍ·,ÈôÒÑ´æÔÚÔò¸²¸Ç
+    //æ·»åŠ è¯·æ±‚å¤´,è‹¥å·²å­˜åœ¨åˆ™è¦†ç›–
     public HttpHead AddRequestHeader(string key, string value)...
 
-    //ÉèÖÃClientIp
+    //è®¾ç½®ClientIp
     public HttpHead ClientIp(string ip)...
 
-    //ÉèÖÃRemoteAddr
+    //è®¾ç½®RemoteAddr
     public HttpHead RemoteAddr(string ip)...
 
-    //ÉèÖÃXForwardedFor
+    //è®¾ç½®XForwardedFor
     public HttpHead XForwardedFor(string ip)...
 
-    //Í¬Ê±ÉèÖÃClientIp,RemoteAddr,XForwardedFor
+    //åŒæ—¶è®¾ç½®ClientIp,RemoteAddr,XForwardedFor
     public HttpHead Ip(string ip)...
 
-    //ÉèÖÃÖ§³ÖµÄAccept-Encoding,Ä¬ÈÏÖ§³Ögzip,deflate
+    //è®¾ç½®æ”¯æŒçš„Accept-Encoding,é»˜è®¤æ”¯æŒgzip,deflate
     public HttpHead AcceptEncoding(string acceptEncoding)..
 
-    //ÉèÖÃÖ§³ÖµÄAccept-Language,Ä¬ÈÏzh-CN,zh;q=0.8
+    //è®¾ç½®æ”¯æŒçš„Accept-Language,é»˜è®¤zh-CN,zh;q=0.8
     public HttpHead Acceptlanguange(string acceptlanguange)...
 
-    //ÉèÖÃX-Requested-WithÇëÇó·½Ê½,Ä¬ÈÏÎªÆÕÍ¨
+    //è®¾ç½®X-Requested-Withè¯·æ±‚æ–¹å¼,é»˜è®¤ä¸ºæ™®é€š
     public HttpHead SetXRequestedWith(XRequestedWith xRequestedWith)...
 
-    //ÉèÖÃOrigin
+    //è®¾ç½®Origin
     public HttpHead Origin(string origin)..
 
-    //ÉèÖÃÍ¨¹ıGet»ñÈ¡ÍøÂç×ÊÔ´
+    //è®¾ç½®é€šè¿‡Getè·å–ç½‘ç»œèµ„æº
     public DefaultData MethodGet()..
 
-    //ÉèÖÃÍ¨¹ıFrom·½Ê½Post»ñÈ¡ÍøÂç×ÊÔ´
+    //è®¾ç½®é€šè¿‡Fromæ–¹å¼Postè·å–ç½‘ç»œèµ„æº
     public DefaultData MethodPostDefault()...
 
-    //ÉèÖÃÍ¨¹ıJson·½Ê½Post»ñÈ¡ÍøÂç×ÊÔ´
+    //è®¾ç½®é€šè¿‡Jsonæ–¹å¼Postè·å–ç½‘ç»œèµ„æº
     public HttpHead MethodPostJson(Object data = null)...
 
-    //ÉèÖÃÍ¨¹ıXml·½Ê½Post»ñÈ¡ÍøÂç×ÊÔ´
+    //è®¾ç½®é€šè¿‡Xmlæ–¹å¼Postè·å–ç½‘ç»œèµ„æº
     public HttpHead MethodPostXml(Object data = null)...
 
-    //ÉèÖÃÍ¨¹ıStream·½Ê½Post»ñÈ¡ÍøÂç×ÊÔ´
+    //è®¾ç½®é€šè¿‡Streamæ–¹å¼Postè·å–ç½‘ç»œèµ„æº
     public StreamData MethodPostStream()...
 
-    //¿ªÆô±£³ÖÁ´½Ó,Ä¬ÈÏ¿ªÆô
+    //å¼€å¯ä¿æŒé“¾æ¥,é»˜è®¤å¼€å¯
     public HttpHead KeepAliveEnable()..
 
-    //¹Ø±Õ±£³ÖÁ´½Ó
+    //å…³é—­ä¿æŒé“¾æ¥
     public HttpHead KeepAliveDisable()..
 
-    //ÆÕÍ¨getÓëpost²ÎÊı½ç¶¨
+    //æ™®é€šgetä¸postå‚æ•°ç•Œå®š
     public class DefaultData
     {
 		...
     }
 
-    //Á÷·½Ê½post²ÎÊı½ç¶¨
+    //æµæ–¹å¼postå‚æ•°ç•Œå®š
     public class StreamData
     {
 		...
@@ -127,9 +127,9 @@ public class HttpHead
 }
 ```
 
-### ÆäËû¸¨ÖúÀà
+### å…¶ä»–è¾…åŠ©ç±»
 ```C#
-//Ìá¹©HeadµÄÁ´Ê½±à³ÌÀ©Õ¹
+//æä¾›Headçš„é“¾å¼ç¼–ç¨‹æ‰©å±•
 public static class OpenHttpExpand
 {
 	...
@@ -151,9 +151,9 @@ public enum XRequestedWith
 }
 ```
 
-## ÔõÃ´Ê¹ÓÃ
+## æ€ä¹ˆä½¿ç”¨
 
-### ÏÂÔØµ¥ÎÄ¼şËæ±ãÄã·ÅÄÄÀï
+### ä¸‹è½½å•æ–‡ä»¶éšä¾¿ä½ æ”¾å“ªé‡Œ
 
 ```C#
 using System;
@@ -164,35 +164,38 @@ namespace OpenHttp.Test
     {
         static void Main(string[] args)
         {
-            //´´½¨HttpClient¶ÔÏó,¸÷¸öHttpClient¶ÔÏóÖ®¼äCookie²»¹²Ïí
-            //±ÈÈçÄãÒªÔÚAÕ¾µãÓĞ¶à¸öÕËºÅÒªµÇÂ¼,Çë´´½¨¶à¸öHttpClient¶ÔÏó
+            //åˆ›å»ºHttpClientå¯¹è±¡,å„ä¸ªHttpClientå¯¹è±¡ä¹‹é—´Cookieä¸å…±äº«
+            //æ¯”å¦‚ä½ è¦åœ¨Aç«™ç‚¹æœ‰å¤šä¸ªè´¦å·è¦ç™»å½•,è¯·åˆ›å»ºå¤šä¸ªHttpClientå¯¹è±¡
             var httpClient = new HttpClient();
-            //HttpHeadÁ´Ê½±à³Ì
-            //¾¡Á¿Ä£ÄâÕı³£·ÃÎÊ,½µµÍ¾Ü¾ø·ÃÎÊ¼¸ÂÊ
+            //HttpHeadé“¾å¼ç¼–ç¨‹
+            //å°½é‡æ¨¡æ‹Ÿæ­£å¸¸è®¿é—®,é™ä½æ‹’ç»è®¿é—®å‡ ç‡
             var head = HttpHead.Builder
-                //µ±Ç°ÇëÇó²»Ê¹ÓÃCookie,´Ë´¦²»Ê¹ÓÃÊÇÄ£ÄâÃ¿´ÎÇëÇó¶¼ÊÇµÚÒ»´Î
+                //å½“å‰è¯·æ±‚ä¸ä½¿ç”¨Cookie,æ­¤å¤„ä¸ä½¿ç”¨æ˜¯æ¨¡æ‹Ÿæ¯æ¬¡è¯·æ±‚éƒ½æ˜¯ç¬¬ä¸€æ¬¡
                 .CookieStateDisable()
-                //ÇëÇóµÄµØÖ·
+                //è¯·æ±‚çš„åœ°å€
                 .Url("http://www.baidu.com/s")
-                //ÇëÇó·½Ê½ÒÔ¼°²ÎÊı
+                //è¯·æ±‚æ–¹å¼ä»¥åŠå‚æ•°
                 .MethodGet()
-                    .AddData("wd", Uri.EscapeDataString("Ñª¿ªÑô"))
+                    .AddData("wd", Uri.EscapeDataString("è¡€å¼€é˜³"))
                     .AddData("pn", "0")
                 .End()
-                //Õ¾µãÓòÃû,´Ë´¦ÉèÖÃºó,Url¿ÉÒÔÊ¹ÓÃIpµÄ·½Ê½·ÃÎÊ
-                //±ÈÈçwww.baidu.comÓĞ¶à¸ö·şÎñÆ÷,·şÎñÆ÷a°ÑÄãÀ­ºÚ,Äã¿ÉÒÔ·ÃÎÊb
+                //ç«™ç‚¹åŸŸå,æ­¤å¤„è®¾ç½®å,Urlå¯ä»¥ä½¿ç”¨Ipçš„æ–¹å¼è®¿é—®
+                //æ¯”å¦‚www.baidu.comæœ‰å¤šä¸ªæœåŠ¡å™¨,æœåŠ¡å™¨aæŠŠä½ æ‹‰é»‘,ä½ å¯ä»¥è®¿é—®b
                 .Host("www.baidu.com")
-                //·ÃÎÊÀ´Ô´,ºÜ¶àÕ¾µã×ö·´ÍâÁ´,×ö¼ì²âÅÀ³æ¶¼»á¶ÁÕâ¸ö
+                //è®¿é—®æ¥æº,å¾ˆå¤šç«™ç‚¹åšåå¤–é“¾,åšæ£€æµ‹çˆ¬è™«éƒ½ä¼šè¯»è¿™ä¸ª
                 .Referer("http://www.baidu.com")
-                //AjaxÇëÇó
+                //Ajaxè¯·æ±‚
                 .SetXRequestedWith(XRequestedWith.Async)
-                //×Ô¶¨ÒåµÄÍ·,×¥°ü·¢ÏÖbaiduÓĞĞ©Õâ¸ö,¾¡Á¿Ä£ÄâÕı³£·ÃÎÊ,½µµÍ¾Ü¾ø·ÃÎÊ¼¸ÂÊ
+                //è‡ªå®šä¹‰çš„å¤´,æŠ“åŒ…å‘ç°baiduæœ‰äº›è¿™ä¸ª,å°½é‡æ¨¡æ‹Ÿæ­£å¸¸è®¿é—®,é™ä½æ‹’ç»è®¿é—®å‡ ç‡
                 .AddRequestHeader("is_xhr", "1")
                 .AddRequestHeader("is_referer", "http://www.baidu.com")
-                .AddRequestHeader("is_pbs", Uri.EscapeDataString("Ñª¿ªÑô"));
+                .AddRequestHeader("is_pbs", Uri.EscapeDataString("è¡€å¼€é˜³"));
 
             var html = httpClient.Load(ref head).ToString(head.Encod);
         }
     }
 }
 ```
+## å…¶ä»–
+
+æ­¤ç±»è¿˜æä¾›æ›´å¤šæ–¹æ³•æœç»è¢«æ‹‰è¿›å°é»‘å±‹,ä¸å¦‚å›ºå®šä¸€ä¸ªè¿æ¥ç«¯å£è®©æœåŠ¡ç«¯ä»¥ä¸ºä½ ä¸€ç›´æ˜¯ä¸€ä¸ªè¯·æ±‚ç­‰ç­‰....
