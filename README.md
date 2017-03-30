@@ -16,9 +16,7 @@
 
 GitHub： https://github.com/bloodopensun/OpenHttp
 
-## 怎么使用
-
-### 下载单文件随便你放哪里
+## 代码介绍
 
 ### HttpClient类
 ```C#
@@ -46,3 +44,113 @@ public class HttpClient
 	private HttpWebResponse GetResponse(HttpWebRequest myRequest, ref HttpHead head)
 }
 ```
+
+### HttpHead类
+```C#
+public class HttpHead
+{
+
+    //一些head属性
+	...
+
+    //开启自动重定向,默认开启
+    public HttpHead AllowAutoRedirectEnable()...
+
+    //关闭自动重定向,默认开启
+    public HttpHead AllowAutoRedirectDisable()...
+
+    //当前Head使用Cookie
+    public HttpHead CookieStateEnable()...
+
+    //当前Head禁用Cookie
+    public HttpHead CookieStateDisable()...
+
+    //添加请求头,若已存在则覆盖
+    public HttpHead AddRequestHeader(string key, string value)...
+
+    //设置ClientIp
+    public HttpHead ClientIp(string ip)...
+
+    //设置RemoteAddr
+    public HttpHead RemoteAddr(string ip)...
+
+    //设置XForwardedFor
+    public HttpHead XForwardedFor(string ip)...
+
+    //同时设置ClientIp,RemoteAddr,XForwardedFor
+    public HttpHead Ip(string ip)...
+
+    //设置支持的Accept-Encoding,默认支持gzip,deflate
+    public HttpHead AcceptEncoding(string acceptEncoding)..
+
+    //设置支持的Accept-Language,默认zh-CN,zh;q=0.8
+    public HttpHead Acceptlanguange(string acceptlanguange)...
+
+    //设置X-Requested-With请求方式,默认为普通
+    public HttpHead SetXRequestedWith(XRequestedWith xRequestedWith)...
+
+    //设置Origin
+    public HttpHead Origin(string origin)..
+
+    //设置通过Get获取网络资源
+    public DefaultData MethodGet()..
+
+    //设置通过From方式Post获取网络资源
+    public DefaultData MethodPostDefault()...
+
+    //设置通过Json方式Post获取网络资源
+    public HttpHead MethodPostJson(Object data = null)...
+
+    //设置通过Xml方式Post获取网络资源
+    public HttpHead MethodPostXml(Object data = null)...
+
+    //设置通过Stream方式Post获取网络资源
+    public StreamData MethodPostStream()...
+
+    //开启保持链接,默认开启
+    public HttpHead KeepAliveEnable()..
+
+    //关闭保持链接
+    public HttpHead KeepAliveDisable()..
+
+    //普通get与post参数界定
+    public class DefaultData
+    {
+		...
+    }
+
+    //流方式post参数界定
+    public class StreamData
+    {
+		...
+    }
+}
+```
+
+### 其他辅助类
+```C#
+//提供Head的链式编程扩展
+public static class OpenHttpExpand
+{
+	...
+}
+
+public enum Method
+{
+	...
+}
+
+public enum ContentType
+{
+	...
+}
+
+public enum XRequestedWith
+{
+	...
+}
+```
+
+## 怎么使用
+
+### 下载单文件随便你放哪里
