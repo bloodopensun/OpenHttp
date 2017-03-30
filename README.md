@@ -170,7 +170,7 @@ namespace OpenHttp.Test
             //HttpHead链式编程
             //尽量模拟正常访问,降低拒绝访问几率
             var head = HttpHead.Builder
-                //当前请求不使用Cookie
+                //当前请求不使用Cookie,此处不使用是模拟每次请求都是第一次
                 .CookieStateDisable()
                 //请求的地址
                 .Url("http://www.baidu.com/s")
