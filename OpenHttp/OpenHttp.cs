@@ -1039,7 +1039,17 @@ namespace OpenHttp
 
             if (null == myResponse) return null;
 
-            head.Encod = head.Encod ?? Encoding.GetEncoding(string.IsNullOrEmpty(myResponse.CharacterSet) ? "utf-8" : myResponse.CharacterSet);
+            try
+            {
+                head.Encod = head.Encod ??
+                             Encoding.GetEncoding(string.IsNullOrEmpty(myResponse.CharacterSet)
+                                 ? "utf-8"
+                                 : myResponse.CharacterSet);
+            }
+            catch
+            {
+                head.Encod = Encoding.UTF8;
+            }
             //myResponse.ContentEncoding
             //myResponse.ContentLength
             //myResponse.ContentType
