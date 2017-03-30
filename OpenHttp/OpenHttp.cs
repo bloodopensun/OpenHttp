@@ -319,7 +319,7 @@ namespace OpenHttp
         public StreamData MethodPostStream()
         {
             Method = Method.Post;
-            ContentType = ContentType.Xml;
+            ContentType = ContentType.Stream;
             return new StreamData(this);
         }
 
