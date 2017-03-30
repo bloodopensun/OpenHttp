@@ -820,7 +820,7 @@ namespace OpenHttp
         /// <summary>
         /// 初始化
         /// </summary>
-        public HttpClient()
+        static HttpClient()
         {
             ServicePointManager.MaxServicePoints = 0;
             ServicePointManager.UseNagleAlgorithm = true;

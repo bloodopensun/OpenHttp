@@ -22,4 +22,27 @@ GitHub： https://github.com/bloodopensun/OpenHttp
 
 ### HttpClient类
 ```C#
+public class HttpClient
+{
+	//提供一些优化的初始化配置
+	static HttpClient()...
+
+	//用来管理当前实例的cookie凭证
+	public CookieContainer Cookie { get; set; } = new CookieContainer();
+
+	//唯一一个对外方法,加载网络资源
+	public byte[] Load(ref HttpHead head)...
+
+	//url的一些处理
+	private static string UrlPack(HttpHead head)...
+
+	//对Httphead的一些处理
+	private HttpWebRequest GetRequest(HttpHead head)...
+
+	//Post的时候做一些处理
+	private static HttpWebRequest PostPack(HttpWebRequest myRequest, HttpHead head)...
+
+	//获取网络资源
+	private HttpWebResponse GetResponse(HttpWebRequest myRequest, ref HttpHead head)
+}
 ```
